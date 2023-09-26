@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Style for the table */
+        .author-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for table header */
+        .author-table th {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Style for table rows */
+        .author-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .author-table tr:nth-child(odd) {
+            background-color: #e0e0e0;
+        }
+
+        /* Style for table cells */
+        .author-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+
+        }
+
+        /* Style for the links */
+        .author-link {
+            text-decoration: none;
+            color: #007bff; /* Blue color for links */
+        }
+        .author-link:hover {
+            color:green;
+        }
+    </style>
+</head>
+<body>
+<h2>Click Me !!! Add Books/Search Books</h2>
+<a class="author-link" href="{% url 'add_book'  %}">(Add Books)</a>
+<a class="author-link" href="{% url 'search_book'  %}">(Search Books)</a>
+<h1>Author list:</h1>
+<table class="author-table">
+    <thead>
+    <tr>
+        <th>Author Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for author_name in author_names %}
+        <tr>
+            <td><a class="author-link" href="{% url 'redirect_to_books' author_name %}">{{ author_name }}</a></td>
+            <td> <a href="{% url 'delete_author' author_name %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for {{ author_name }}</h1>
+    <ul>
+        {% for book in matching_books %}
+            <li>{{ book }}</li>
+        {% empty %}
+            <p>No matching books found.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Back to Author List</a>
+</body>
+</html>
