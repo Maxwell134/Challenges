@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseNotFound
 
-
-
 # Create your views here.
 
 # Existing authors and books (from the previous list)
