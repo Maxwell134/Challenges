@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    image: myapp
+    deploy:
+      replicas: 5
+
+    ports:
+      - '8000:8000'
+    networks:
+      - django-net
+
+networks:
+      django-net:
+
+
